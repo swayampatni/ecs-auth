@@ -1,0 +1,20 @@
+nginx:
+    build: .
+    dockerfile: Dockerfile.nginx
+    links:
+        - app
+    ports:
+        - "88:88"
+app:
+    build: .
+    dockerfile: Dockerfile.node
+    links:
+        - mongo
+    ports:
+        - "8777:8777"
+mongo:
+    build: .
+    dockerfile: Dockerfile.mongo
+    ports:
+        - "27017:27017"
+    command: mongod --smallfiles --logpath=/dev/null

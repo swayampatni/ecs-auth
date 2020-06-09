@@ -1,0 +1,54 @@
+{
+  "name": "ecs-auth",
+  "version": "3.1.3",
+  "description": "Auth microserivice Docker: Nginx -> Node -> (Mongo, Redis)",
+  "keywords": [],
+  "scripts": {
+    "start": "node -r dotenv/config --harmony server.js",
+    "dev": "nodemon -r dotenv/config --harmony server.js",
+    "doc": "apidoc -i src/api/ -o ./public",
+    "pretest": "./node_modules/.bin/eslint --fix src/** server.js",
+    "test-travis": "node --harmony ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -r dotenv/config -R spec --recursive ./tests --timeout 15000",
+    "test": "./node_modules/mocha/bin/_mocha --timeout 2000 -r dotenv/config --reporter mochawesome --recursive ./tests"
+  },
+  "main": "server.js",
+  "engines": {
+    "node": ">=8.3.x",
+    "npm": ">=5.x"
+  },
+  "apidoc": {
+    "title": "API Boundle",
+    "version": "1.1.2",
+    "description": "Documentation for API Boundle of ECS Microservice",
+    "url": "http://localhost:8777",
+    "sampleUrl": "http://localhost:8777"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.5.1",
+    "http-status-codes": "^1.3.0",
+    "joi": "^11.1.1",
+    "jsonwebtoken-refresh": "^5.7.0",
+    "koa": "^2.3.0",
+    "koa-body": "^2.5.0",
+    "koa-json-error": "^3.1.2",
+    "koa-logger": "^3.1.0",
+    "koa-router": "^7.2.1",
+    "koa2-static-files": "^1.0.4",
+    "mongodb": "^2.2.31",
+    "redis": "^2.8.0"
+  },
+  "devDependencies": {
+    "chakram": "^1.5.0",
+    "coveralls": "^3.0.0",
+    "dotenv": "^4.0.0",
+    "eslint": "^4.8.0",
+    "eslint-plugin-async-await": "0.0.0",
+    "istanbul": "^1.1.0-alpha.1",
+    "jscoverage": "^0.6.0",
+    "mocha": "^3.5.3",
+    "mochawesome": "^2.3.1",
+    "nodemon": "^1.12.1",
+    "winston": "^2.4.0"
+  }
+}

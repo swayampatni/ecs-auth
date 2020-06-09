@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - "8"
+
+env:
+  - STORAGE=mongo
+  - STORAGE=redis
+
+services:
+  - mongodb
+  - redis-server
+
+cache:
+  directories:
+    - "node_modules"
+
+before_install:
+  - cd app && npm install -g npm
+before_script:
+  - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+  - "npm install"
+  - "npm start&"
+script:
+  - "npm run-script test-travis"
+after_script: "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"

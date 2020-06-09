@@ -1,0 +1,13 @@
+# Logs
+npm-debug.log
+
+# Dependency directories
+node_modules/
+mochawesome-report/
+
+# User-specific stuff:
+.idea/
+/app/coverage/
+/app/reports/
+/app/logs/
+/app/package-lock.json
