@@ -35,7 +35,7 @@
     "koa-logger": "^3.1.0",
     "koa-router": "^7.2.1",
     "koa2-static-files": "^1.0.4",
-    "mongodb": "^2.2.31",
+    "mongodb": "^3.6.1",
     "redis": "^2.8.0"
   },
   "devDependencies": {
